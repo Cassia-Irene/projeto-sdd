@@ -5,7 +5,7 @@ from faker import Faker
 
 fake = Faker('pt_BR')
 # Coloque seu token aqui ou use uma variável de ambiente
-TOKEN = "de2273ac837e9af9d8a16a725cba72a0" 
+TOKEN = "SUA_CHAVE_AQUI" 
 
 def consultar_portal(cpf_limpo):
     """Consulta se o CPF gerado já possui benefícios no Portal da Transparência"""
@@ -20,7 +20,7 @@ def consultar_portal(cpf_limpo):
         return None
     return None
 
-def gerar_familias(quantidade=80): # Reduzi a quantidade para não estourar o limite da API (180/min)
+def gerar_familias(quantidade=10): # Reduzi a quantidade para não estourar o limite da API (180/min)
     with open('data/bairros_slz.json', 'r', encoding='utf-8') as f:
         bairros = json.load(f)
 
@@ -30,7 +30,7 @@ def gerar_familias(quantidade=80): # Reduzi a quantidade para não estourar o li
         cpf_fake = fake.cpf()
         cpf_limpo = cpf_fake.replace('.', '').replace('-', '')
         
-        # Tenta validar no portal
+        # Tenta validar no portal (Opcional, dependendo do seu Token)
         dados_portal = consultar_portal(cpf_limpo)
         
         familias[cpf_fake] = {

@@ -20,7 +20,7 @@ def consultar_portal(cpf_limpo):
         return None
     return None
 
-def gerar_familias(quantidade=80): # Reduzi a quantidade para não estourar o limite da API (180/min)
+def gerar_familias(quantidade=10): # Reduzi a quantidade para não estourar o limite da API (180/min)
     with open('data/bairros_slz.json', 'r', encoding='utf-8') as f:
         bairros = json.load(f)
 

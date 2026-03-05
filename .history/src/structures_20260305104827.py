@@ -13,12 +13,15 @@ def carregar_bairros():
 
 # DICIONÁRIO: Cadastro Unificado
 def carregar_familias():
-    caminho_json = os.path.join('data', 'familias_slz.json')
+    caminho_ = os.path.join('data', 'familias_slz.json')
     try:
-        with open(caminho_json, 'r', encoding='utf-8') as f:
+        with open(caminho, 'r', encoding='utf-8') as f:
             return json.load(f) # Dicionário com CPF como chave 
     except FileNotFoundError:
         return {}
+
+# CONJUNTO: Bairros atendidos para lógica de exclusão geográfica [cite: 121, 159]
+bairros_atendidos = {"Centro", "Anjo da Guarda"} 
 
 # TUPLA: Registro imutável de entregas (Parte 1) 
 historico_entregas = (
@@ -28,7 +31,5 @@ historico_entregas = (
 
 if __name__ == "__main__":
     bairros_oficiais = carregar_bairros()
-    cadastro_familias = carregar_familias()
     print(f"Estruturas inicializadas.")
     print(f"Total de bairros carregados: {len(bairros_oficiais)}")
-    print(f"Total de famílias cadastradas: {len(cadastro_familias)}")

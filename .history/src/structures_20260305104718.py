@@ -12,13 +12,21 @@ def carregar_bairros():
         return set()
 
 # DICIONÁRIO: Cadastro Unificado
-def carregar_familias():
-    caminho_json = os.path.join('data', 'familias_slz.json')
-    try:
-        with open(caminho_json, 'r', encoding='utf-8') as f:
-            return json.load(f) # Dicionário com CPF como chave 
-    except FileNotFoundError:
-        return {}
+# Atributos baseados diretamente nas variáveis da Tabela 3
+cadastro_familias = {
+    "NIS_12345": {
+        "responsavel": "Maria Silva",
+        "bairro": "Coroadinho",
+        "membros": 4,
+        "renda_sm": 0.5,           # Variável 9 da Tabela 3
+        "sem_banheiro": True,      # Variável 6 da Tabela 3
+        "analfabetismo": False,    # Variável 8 da Tabela 3
+        "inseguranca": "Grave"     # Classificação Parte 2 
+    }
+}
+
+# CONJUNTO: Bairros atendidos para lógica de exclusão geográfica [cite: 121, 159]
+bairros_atendidos = {"Centro", "Anjo da Guarda"} 
 
 # TUPLA: Registro imutável de entregas (Parte 1) 
 historico_entregas = (
@@ -28,7 +36,5 @@ historico_entregas = (
 
 if __name__ == "__main__":
     bairros_oficiais = carregar_bairros()
-    cadastro_familias = carregar_familias()
     print(f"Estruturas inicializadas.")
     print(f"Total de bairros carregados: {len(bairros_oficiais)}")
-    print(f"Total de famílias cadastradas: {len(cadastro_familias)}")

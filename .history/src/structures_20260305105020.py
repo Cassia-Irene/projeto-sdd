@@ -31,4 +31,3 @@ if __name__ == "__main__":
     cadastro_familias = carregar_familias()
     print(f"Estruturas inicializadas.")
     print(f"Total de bairros carregados: {len(bairros_oficiais)}")
-    print(f"Total de famílias cadastradas: {len(cadastro_familias)}")

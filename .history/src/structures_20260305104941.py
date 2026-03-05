@@ -28,7 +28,5 @@ historico_entregas = (
 
 if __name__ == "__main__":
     bairros_oficiais = carregar_bairros()
-    cadastro_familias = carregar_familias()
     print(f"Estruturas inicializadas.")
     print(f"Total de bairros carregados: {len(bairros_oficiais)}")
-    print(f"Total de famílias cadastradas: {len(cadastro_familias)}")

@@ -84,4 +84,4 @@ if __name__ == "__main__":
     else:
         for cpf, f in criticas.items():
             print(f" -> {f['responsavel']} | Bairro: {f['bairro']} | Renda: {f['renda_sm']} SM")
-    print("="*80)
+    print("="*60)

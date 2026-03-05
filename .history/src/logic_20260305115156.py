@@ -60,9 +60,9 @@ def buscar_familias_criticas():
 # EXECUÇÃO PRINCIPAL
 # ==========================================
 if __name__ == "__main__":
-    print("="*80)
+    print("="*60)
     print(" 📊 ECOSSISTEMA DE INTELIGÊNCIA ALIMENTAR - ANÁLISE")
-    print("="*80)
+    print("="*60)
     
     # Executa Análise Geográfica
     desassistidos = identificar_bairros_desassistidos()
@@ -76,7 +76,7 @@ if __name__ == "__main__":
     print(f"\n⚠️ [MAPEAMENTO FAMILIAR - CASOS CRÍTICOS]")
     print(f"Total de Famílias Cadastradas: {len(carregar_familias())}")
     print(f"Famílias em Situação Crítica (Renda <= 0.5 SM e Sem Banheiro): {len(criticas)}")
-    print("-" * 80)
+    print("-" * 60)
     
     # Exibe os resultados críticos formatados
     if not criticas:
@@ -84,4 +84,4 @@ if __name__ == "__main__":
     else:
         for cpf, f in criticas.items():
             print(f" -> {f['responsavel']} | Bairro: {f['bairro']} | Renda: {f['renda_sm']} SM")
-    print("="*80)
+    print("="*60)
