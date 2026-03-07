@@ -57,6 +57,25 @@ def buscar_familias_criticas():
     return familias_criticas
 
 # ==========================================
+# 4. LÓGICA DE PRIORIZAÇÃO (ORDENAÇÃO)
+# ==========================================
+def converter_dict_para_lista(dicionario_familias):
+    """Converte o dicionário de CPFs numa lista para o algoritmo Merge Sort."""
+    familias_lista = []
+    for cpf, info in dicionario_familias.items():
+        familia = {"cpf": cpf}
+        familia.update(info)
+        familias_lista.append(familia)
+    return familias_lista
+
+def filtrar_por_bairro(familias_ordenadas, bairro_alvo, bairros_validos):
+    """Filtra a lista já ordenada pelo Merge Sort para um bairro específico."""
+    if bairro_alvo not in bairros_validos:
+        print(f"Aviso: O bairro '{bairro_alvo}' não consta na lista oficial.")
+        return []
+    return [f for f in familias_ordenadas if f.get('bairro') == bairro_alvo]
+
+# ==========================================
 # EXECUÇÃO PRINCIPAL
 # ==========================================
 if __name__ == "__main__":
