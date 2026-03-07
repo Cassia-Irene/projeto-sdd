@@ -1,0 +1,11 @@
+# Arquivos temporários do Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Configurações locais do editor de código
+.vscode/
+
+# Ambientes virtuais (caso vocês criem um no futuro)
+venv/
+env/
