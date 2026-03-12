@@ -1,14 +1,10 @@
-# 1. Importa as ferramentas de carregamento de dados
 from structures import carregar_familias, carregar_bairros
-
-# 2. Importa a lógica original da equipa e as tuas novas funções de conversão
 from logic import converter_dict_para_lista, filtrar_por_bairro, buscar_familias_criticas, identificar_bairros_desassistidos, bairros_atendidos
 
-# 3. Importa o teu motor de ordenação
 from sorting import merge_sort_familias
 
 def executar_sistema():
-    # Carrega os dados usando as funções da tua equipa
+    # Carrega os dados usando as funções 
     dict_familias = carregar_familias()
     bairros_validos = carregar_bairros()
     
