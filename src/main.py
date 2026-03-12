@@ -8,7 +8,7 @@ def executar_sistema():
     dict_familias = carregar_familias()
     bairros_validos = carregar_bairros()
     
-    # Converte os dados e aplica o teu algoritmo de ordenação (Merge Sort)
+    # Converte os dados e aplica o algoritmo de ordenação (Merge Sort)
     lista_familias = converter_dict_para_lista(dict_familias)
     familias_priorizadas = merge_sort_familias(lista_familias)
     
