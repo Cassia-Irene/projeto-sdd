@@ -1,0 +1,97 @@
+
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ecossistema Inteligente - SLZ</title>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <style>
+            :root { --bg: #f8f9fa; --card-bg: #ffffff; --text: #2c3e50; --accent: #3498db; }
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg); color: var(--text); margin: 0; padding: 20px; }
+            .container { max-width: 1200px; margin: auto; }
+            .header { text-align: center; margin-bottom: 40px; }
+            .header h1 { margin: 0; color: var(--accent); }
+            .grid { display: grid; grid-template-columns: 1fr 2fr; gap: 20px; }
+            .card { background: var(--card-bg); padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+            .chart-container { position: relative; height: 300px; width: 100%; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>Painel de Inteligência Alimentar - São Luís</h1>
+                <p>Monitoramento de Insegurança Familiar e Prevenção de Desastres (Quadra Chuvosa 2026)</p>
+            </div>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>Perfil de Insegurança (80 Famílias)</h3>
+                    <div class="chart-container">
+                        <canvas id="pizzaChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>Impacto Climático nas Áreas Vulneráveis</h3>
+                    <div class="chart-container">
+                        <canvas id="linhaChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // 1. Configuração do Gráfico de Pizza (Perfil)
+            const ctxPizza = document.getElementById('pizzaChart').getContext('2d');
+            new Chart(ctxPizza, {
+                type: 'doughnut',
+                data: {
+                    labels: ["Grave", "Moderada", "Leve", "Seguro"],
+                    datasets: [{
+                        data: [13, 22, 21, 24],
+                        backgroundColor: ['#e74c3c', '#e67e22', '#f1c40f', '#2ecc71'], // Grave, Moderada, Leve, Seguro
+                        borderWidth: 2
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false }
+            });
+
+            // 2. Configuração do Gráfico de Linhas (Chuva x Alerta)
+            const ctxLinha = document.getElementById('linhaChart').getContext('2d');
+            new Chart(ctxLinha, {
+                type: 'line',
+                data: {
+                    labels: ["2025-01-01", "2025-01-02", "2025-01-03", "2025-01-04", "2025-01-05", "2025-01-06", "2025-01-07", "2025-01-08", "2025-01-09", "2025-01-10", "2025-01-11", "2025-01-12", "2025-01-13", "2025-01-14", "2025-01-15", "2025-01-16", "2025-01-17", "2025-01-18", "2025-01-19", "2025-01-20", "2025-01-21", "2025-01-22", "2025-01-23", "2025-01-24", "2025-01-25", "2025-01-26", "2025-01-27", "2025-01-28", "2025-01-29", "2025-01-30", "2025-01-31", "2026-03-01", "2026-03-02", "2026-03-03", "2026-03-04", "2026-03-05", "2026-03-06", "2026-03-07", "2026-03-08", "2026-03-09", "2026-03-10"],
+                    datasets: [
+                        {
+                            label: 'Chuva Diária (mm)',
+                            data: [2.7, 3.6, 8.2, 3.9, 2.8, 4.6, 7.5, 2.3, 3.8, 7.3, 1.9, 3.7, 20.5, 39.0, 28.5, 32.3, 11.2, 20.7, 11.7, 15.4, 2.6, 3.2, 16.9, 22.4, 4.0, 12.9, 6.4, 6.0, 4.5, 8.3, 10.6, 26.9, 18.3, 7.3, 18.3, 33.6, 10.2, 1.5, 2.3, 7.6, 22.5],
+                            borderColor: '#3498db',
+                            backgroundColor: 'rgba(52, 152, 219, 0.2)',
+                            yAxisID: 'y',
+                            fill: true,
+                            tension: 0.3
+                        },
+                        {
+                            type: 'bar',
+                            label: 'Pico de Risco (Famílias Afetadas)',
+                            data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 62, 62, 62, 62, 0, 62, 0, 62, 0, 0, 62, 62, 0, 0, 0, 0, 0, 0, 0, 62, 62, 0, 62, 62, 0, 0, 0, 0, 62],
+                            backgroundColor: 'rgba(231, 76, 60, 0.6)',
+                            yAxisID: 'y1'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: { type: 'linear', display: true, position: 'left', title: {display: true, text: 'Chuva (mm)'} },
+                        y1: { type: 'linear', display: true, position: 'right', title: {display: true, text: 'Famílias em Risco'}, grid: {drawOnChartArea: false} }
+                    }
+                }
+            });
+        </script>
+    </body>
+    </html>
+    

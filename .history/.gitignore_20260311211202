@@ -1,0 +1,31 @@
+# 1. Ambientes Virtuais
+venv/
+env/
+.venv/
+
+# 2. Cache e Compilações Python
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 3. Senhas e Variáveis de Ambiente
+
+.env
+.env.local
+
+# ==========================================
+# 4. Dados Brutos e Pesados
+# ==========================================
+# Ignoramos os CSVs gigantes do Kaggle que você possa baixar na raiz
+*.csv 
+
+# ATENÇÃO: Não coloquei "*.json" ou a pasta "data/" aqui de propósito! 
+# Como as suas listas de famílias (familias_slz.json) são o coração da 
+# sua apresentação, é legal que elas subam para o GitHub para o professor ver.
+
+# ==========================================
+# 5. Configurações de IDE e SO
+.vscode/
+.DS_Store
+Thumbs.db
