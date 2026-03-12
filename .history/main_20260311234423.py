@@ -5,4 +5,5 @@ if __name__ == "__main__":
     print("🚀 INICIANDO ECOSSISTEMA DE INTELIGÊNCIA ALIMENTAR")
     print("="*60)
     
+    # Agora a função vai efetivamente ser chamada!
     gerar_dashboard_html()

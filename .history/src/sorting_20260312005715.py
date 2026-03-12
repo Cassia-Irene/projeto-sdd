@@ -1,10 +1,10 @@
 def tem_prioridade(familia_A, familia_B):
     # Dicionário para transformar texto em número de prioridade
     mapa_risco = {
-        "Grave": 3, 
-        "Moderada": 2,
-        "Leve": 1,
-        "Seguro": 0
+        "Grave": 2, 
+        "Moderada": 1,
+        "Leve": 0,
+        "Seguro": -1
     } 
     
     # Busca os valores, se não tiver insegurança, assume 0
