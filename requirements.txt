@@ -3,3 +3,4 @@ matplotlib
 faker
 pandas
 kagglehub[pandas-datasets]
+folium
