@@ -225,7 +225,7 @@ def _gerar_mapa_calor():
         if lat and lng and nome:
             folium.CircleMarker(
                 location=[lat, lng], radius=3,
-                color="#17978d", fill=True, fill_opacity=0.5,
+                color="#60faed", fill=True, fill_opacity=0.5,
                 tooltip=f"📍 {nome}"
             ).add_to(mapa)
     return mapa._repr_html_()
