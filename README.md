@@ -47,10 +47,11 @@ O sistema gera um painel estratégico em HTML que permite uma análise visual in
     ├── api_ibge.py    # Script de consumo da API do IBGE
     ├── familias_slz.json
     └── chuvas_slz.json
+```
 
 ## 👩‍💻 Autoras
-* **Cássia Irene**
-* **Leonardo Ferreira**
-* **Melissa Wolff** 
+* **Cássia Irene:**
+* **Leonardo Ferreira:**
+* **Melissa Wolff:** 
 ---
 *Projeto desenvolvido para a disciplina de Estruturas de Dados — UNDB.*
