@@ -10,7 +10,7 @@ def coletar_dados_pluviometricos():
     longitude = -44.30
     
     # Período de coleta
-    start_date = "2026-01-01"
+    start_date = "2025-01-01"
     end_date = "2026-03-13"
     
     # Endpoint Open-Meteo 
