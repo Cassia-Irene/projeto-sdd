@@ -10,7 +10,7 @@ O projeto utiliza estruturas de dados otimizadas para garantir performance e int
 
 * **Dicionários (Hash Maps):** Utilizados para o cadastro unificado de famílias, onde a chave é o identificador único (CPF/NIS). Esta estrutura permite o acesso aos atributos de vulnerabilidade com complexidade de tempo constante $O(1)$.
 * **Conjuntos (Sets):** Aplicados na monitoramento da cobertura territorial. Através de operações de diferença, o sistema identifica instantaneamente bairros oficiais que ainda não receberam assistência municipal.
-* **Merge Sort ($O(n \log n)$):** Implementação de um algoritmo de ordenação estável e eficiente para priorizar o atendimento. O critério de rankeamento cruza o nível de insegurança alimentar com a renda per capita.
+* **Merge Sort (O(n log n)):** Implementação de um algoritmo de ordenação estável e eficiente para priorizar o atendimento. O critério de rankeamento cruza o nível de insegurança alimentar com a renda per capita.
 * **Matrizes e Listas:** Estruturas base para o cruzamento de dados geoespaciais e pluviométricos que alimentam o mapa de calor e os gráficos de tendência.
 
 ## 📊 Inteligência Visual (Dashboard Interativo)
