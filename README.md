@@ -36,22 +36,25 @@ O sistema gera um painel estratégico em HTML que permite uma análise visual in
 ## 📂 Arquitetura do Sistema
 ```text
 /
-├── main.py            # Ponto de entrada e execução do Dashboard
-├── requirements.txt   # Dependências do projeto (Folium, Matplotlib, etc.)
-├── /src
-│   ├── structures.py  # Camada de Persistência e Modelagem (I/O)
+├── main.py            # Orquestração e execução do Dashboard
+├── dashboard_slz.html # Interface visual interativa gerada
+├── requirements.txt   # Dependências (Folium, Matplotlib, etc.)
+├── README.md          # Documentação técnica do ecossistema
+├── /src               # Camadas de processamento e lógica
+│   ├── logic.py       # Core: Regras de negócio e análise territorial
 │   ├── sorting.py     # Algoritmos de Ordenação (Merge Sort)
-│   ├── logic.py       # Core: Regras de Negócio e Análise Territorial
-│   └── visuals.py     # Motor de Geração Visual e Dashboard
-└── /data
-    ├── api_ibge.py    # Script de consumo da API do IBGE
+│   ├── structures.py  # Camada de Acesso a Dados e Modelagem (I/O)
+│   └── visuals.py     # Motor de renderização gráfica e mapas
+└── /data              # Base de dados e scripts de suporte
+    ├── bairros_coords.json
+    ├── chuvas_slz.json
     ├── familias_slz.json
-    └── chuvas_slz.json
+    └── (Scripts de processamento de dados sintéticos)
 ```
 
 ## 👩‍💻 Autoras
-* **Cássia Irene:**
-* **Leonardo Ferreira:**
-* **Melissa Wolff:** 
+* **Cássia Irene | [GitHub](https://github.com/Cassia-Irene)**
+* **Leonardo Ferreira | [GitHub](https://github.com/leonardoferrza)**
+* **Melissa Wolff | [GitHub](https://github.com/melwolff13)** 
 ---
 *Projeto desenvolvido para a disciplina de Estruturas de Dados — UNDB.*
