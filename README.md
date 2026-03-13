@@ -34,11 +34,19 @@ O sistema gera um painel estratégico em HTML que permite uma análise visual in
     Abre o ficheiro `dashboard_slz.html` gerado na raiz do projeto no teu navegador.
 
 ## 📂 Arquitetura do Sistema
-* `src/main.py`: Ponto de entrada que orquestra o processamento e gera o dashboard.
-* `src/structures.py`: Módulos de carregamento e modelagem de dados (JSON).
-* `src/logic.py`: Core do sistema (análise de vulnerabilidade e lógica de conjuntos).
-* `src/sorting.py`: Implementação do algoritmo Merge Sort para priorização estável.
-* `src/visuals.py`: Motor de renderização de gráficos Matplotlib e mapas Folium.
+```text
+/
+├── main.py            # Ponto de entrada e execução do Dashboard
+├── requirements.txt   # Dependências do projeto (Folium, Matplotlib, etc.)
+├── /src
+│   ├── structures.py  # Camada de Persistência e Modelagem (I/O)
+│   ├── sorting.py     # Algoritmos de Ordenação (Merge Sort)
+│   ├── logic.py       # Core: Regras de Negócio e Análise Territorial
+│   └── visuals.py     # Motor de Geração Visual e Dashboard
+└── /data
+    ├── api_ibge.py    # Script de consumo da API do IBGE
+    ├── familias_slz.json
+    └── chuvas_slz.json
 
 ## 👩‍💻 Autoras
 * **Cássia Irene**
