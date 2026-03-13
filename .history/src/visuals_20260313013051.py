@@ -211,52 +211,23 @@ def _grafico_privacoes_acumuladas():
 
 # ── Mapa de calor ─────────────────────────────────────────────────────────────
 def _gerar_mapa_calor():
-    # Carrega os dados reais das famílias e as coordenadas dos bairros
-    familias = carregar_familias()
-    bairros_coords = carregar_bairros_coords()
-    
-    # Cria um dicionário rápido para buscar as coordenadas pelo nome do bairro
-    coords_dict = {}
-    for b in bairros_coords:
-        lat = b.get('latitude') or b.get('lat')
-        lng = b.get('longitude') or b.get('lng') or b.get('lon')
-        if lat and lng and b.get('nome'):
-            coords_dict[b['nome']] = (lat, lng)
-
-    # Inicia o mapa centrado em São Luís
+    lats, lngs, niveis = obter_dados_mapa_calor()
     mapa = folium.Map(location=[-2.5391, -44.2829], zoom_start=12, tiles='CartoDB positron')
-    
-    # Define o peso de calor para cada família
-    pesos = {'Grave': 1.0, 'Moderada': 0.6, 'Leve': 0.2, 'Seguro': 0.1}
-    heat_data = []
-    bairros_com_familia = set()
-
-    # Monta os dados do calor APENAS onde existem famílias cadastradas
-    for f in familias.values():
-        bairro_nome = f.get('bairro')
-        nivel = f.get('inseguranca', 'Seguro')
-        
-        if bairro_nome in coords_dict:
-            lat, lng = coords_dict[bairro_nome]
-            peso = pesos.get(nivel, 0.1)
-            
-            # Usando a coordenada exata, sem variações. O folium vai somar 
-            # as temperaturas automaticamente no mesmo lugar!
-            heat_data.append([lat, lng, peso])
-            bairros_com_familia.add((bairro_nome, lat, lng))
-
-    # Desenha a mancha de calor perfeitamente centralizada
-    HeatMap(heat_data, radius=18, blur=14, 
+    pesos = {'Grave': 1.0, 'Moderada': 0.7, 'Leve': 0.4, 'Seguro': 0.1}
+    heat_data = [[lats[i], lngs[i], pesos.get(niveis[i], 0.1)] for i in range(len(lats))]
+    HeatMap(heat_data, radius=18, blur=14,
             gradient={0.2: '#3b82f6', 0.5: '#f59e0b', 1.0: '#ef4444'}).add_to(mapa)
-            
-    # Coloca os alfinetes exatamente em cima do ponto de maior calor
-    for nome, lat, lng in bairros_com_familia:
-        folium.CircleMarker(
-            location=[lat, lng], radius=3,
-            color="#17978d", fill=True, fill_opacity=0.8,
-            tooltip=f"📍 {nome}"
-        ).add_to(mapa)
-        
+    bairros_dados = carregar_bairros_coords()
+    for bairro in bairros_dados:
+        lat  = bairro.get('latitude') or bairro.get('lat')
+        lng  = bairro.get('longitude') or bairro.get('lng') or bairro.get('lon')
+        nome = bairro.get('nome')
+        if lat and lng and nome:
+            folium.CircleMarker(
+                location=[lat, lng], radius=3,
+                color="#17978d", fill=True, fill_opacity=0.5,
+                tooltip=f"📍 {nome}"
+            ).add_to(mapa)
     return mapa._repr_html_()
 
 

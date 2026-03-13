@@ -26,12 +26,12 @@ COD_IBGE_SLZ = "2111300"
 # saude_mental      → 21,65% relataram depressão, ansiedade ou pânico.
 #                     Só 21,43% desses estão em segurança alimentar (Tab. 14)
 PROBABILIDADES = {
-    "tem_menor_18": 0.30,
+    "tem_menor_18":       0.30,
     "escolaridade_baixa": 0.49,
-    "raca_preta": 0.33,
-    "doenca_recente": 0.31,
-    "saude_mental": 0.22,
-    "moradia_precaria": 0.15  
+    "raca_preta":         0.33,
+    "doenca_recente":     0.31,
+    "saude_mental":       0.22,
+    
 }
 
 # Categoria Habitacional
@@ -73,7 +73,7 @@ def _sortear_renda():
     return round(random.uniform(5.0, 8.0), 2)
 
 
-def classificar_inseguranca(renda, tem_menor, escolaridade_baixa, pts_moradia):
+def classificar_inseguranca(renda, tem_menor, escolaridade_baixa):
     """
     Classifica o nível de insegurança alimentar com base em três fatores
     validados pelo diagnóstico MIANMA/SEDES 2024/25 para a Ilha do Maranhão.
@@ -103,11 +103,9 @@ def classificar_inseguranca(renda, tem_menor, escolaridade_baixa, pts_moradia):
     if escolaridade_baixa:
         score += 1
 
-    score += pts_moradia
-
-    if score >= 6:   return "Grave"
-    elif score >= 4: return "Moderada"
-    elif score >= 2: return "Leve"
+    if score >= 5:   return "Grave"
+    elif score >= 3: return "Moderada"
+    elif score >= 1: return "Leve"
     return "Seguro"
 
 

@@ -106,8 +106,8 @@ def classificar_inseguranca(renda, tem_menor, escolaridade_baixa, pts_moradia):
     score += pts_moradia
 
     if score >= 6:   return "Grave"
-    elif score >= 4: return "Moderada"
-    elif score >= 2: return "Leve"
+    elif score >= 3: return "Moderada"
+    elif score >= 1: return "Leve"
     return "Seguro"
 
 

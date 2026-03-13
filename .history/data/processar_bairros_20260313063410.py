@@ -32,15 +32,14 @@ def automatizar_extracao_coordenadas():
         set_bairros_atendidos = set()
         
         if os.path.exists(caminho_familias):
-            try:
-                with open(caminho_familias, 'r', encoding='utf-8') as f:
-                    dados_familias = json.load(f)
-                    for f_id in dados_familias:
-                        fam = dados_familias[f_id]
-                        if fam.get('ja_recebe_auxilio'):
-                            set_bairros_atendidos.add(fam.get('bairro'))
-            except Exception as e:
-                print(f"⚠️ Aviso: Não foi possível ler as famílias para status de auxílio: {e}")
+            
+            with open(caminho_familias, 'r', encoding='utf-8') as f:
+                dados_familias = json.load(f)
+                for f_id in dados_familias:
+                    fam = dados_familias[f_id]
+                    if fam.get('ja_recebe_auxilio'):
+                        set_bairros_atendidos.add(fam.get('bairro'))
+
 
         # 4. Estruturação simplificada (Base para o gerar_entregas.py)
         bairros_coords = []

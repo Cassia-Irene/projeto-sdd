@@ -39,8 +39,7 @@ def automatizar_extracao_coordenadas():
                         fam = dados_familias[f_id]
                         if fam.get('ja_recebe_auxilio'):
                             set_bairros_atendidos.add(fam.get('bairro'))
-            except Exception as e:
-                print(f"⚠️ Aviso: Não foi possível ler as famílias para status de auxílio: {e}")
+
 
         # 4. Estruturação simplificada (Base para o gerar_entregas.py)
         bairros_coords = []

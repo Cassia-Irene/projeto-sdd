@@ -26,22 +26,20 @@ COD_IBGE_SLZ = "2111300"
 # saude_mental      → 21,65% relataram depressão, ansiedade ou pânico.
 #                     Só 21,43% desses estão em segurança alimentar (Tab. 14)
 PROBABILIDADES = {
-    "tem_menor_18": 0.30,
+    "tem_menor_18":       0.30,
     "escolaridade_baixa": 0.49,
-    "raca_preta": 0.33,
-    "doenca_recente": 0.31,
-    "saude_mental": 0.22,
-    "moradia_precaria": 0.15  
+    "raca_preta":         0.33,
+    "doenca_recente":     0.31,
+    "saude_mental":       0.22,
 }
 
-# Categoria Habitacional
+# Categoria Habitacional focada em Contexto Social e Vulnerabilidade
 TIPOS_MORADIA = [
-    ("Apartamento (Privado)", 0.15, 0),   # Prédios de classe média/alta 
-    ("Alvenaria (Regular)", 0.50, 0),     # Casas padrão em bairros consolidados
-    ("Conjunto Habitacional", 0.15, 0),   # Apartamentos/Casas populares 
-    ("Casa de Madeira", 0.08, 1),         # Estrutura frágil 
-    ("Taipa/Barro", 0.07, 2),             # Construção precária 
-    ("Palafita", 0.05, 4)                 # Risco Máximo 
+    ("Alvenaria (Regular)", 0.65, 0),  # Casas padrão de tijolo/concreto
+    ("Apartamento Popular", 0.10, 0),  # Conjuntos habitacionais (Minha Casa Minha Vida)
+    ("Casa de Madeira", 0.10, 1),      # Estrutura frágil, mas em solo firme
+    ("Taipa/Barro", 0.08, 2),          # Construção precária tradicional
+    ("Palafita", 0.07, 4)              # Risco máximo: área de maré/alagamento
 ]
 
 # ── Distribuição de renda alinhada ao perfil real de São Luís ─────────────────
@@ -52,15 +50,6 @@ FAIXAS_RENDA = [
     (3.00, 5.00, 0.16),
     (5.00, 8.00, 0.10),
 ]
-
-def _sortear_moradia():
-    r = random.random()
-    acumulado = 0.0
-    for tipo, peso, pontos in TIPOS_MORADIA:
-        acumulado += peso
-        if r <= acumulado:
-            return tipo, pontos
-    return "Alvenaria", 0
 
 def _sortear_renda():
     """Sorteia renda respeitando as faixas do diagnóstico SEDES."""
@@ -73,7 +62,7 @@ def _sortear_renda():
     return round(random.uniform(5.0, 8.0), 2)
 
 
-def classificar_inseguranca(renda, tem_menor, escolaridade_baixa, pts_moradia):
+def classificar_inseguranca(renda, tem_menor, escolaridade_baixa):
     """
     Classifica o nível de insegurança alimentar com base em três fatores
     validados pelo diagnóstico MIANMA/SEDES 2024/25 para a Ilha do Maranhão.
@@ -103,11 +92,9 @@ def classificar_inseguranca(renda, tem_menor, escolaridade_baixa, pts_moradia):
     if escolaridade_baixa:
         score += 1
 
-    score += pts_moradia
-
-    if score >= 6:   return "Grave"
-    elif score >= 4: return "Moderada"
-    elif score >= 2: return "Leve"
+    if score >= 5:   return "Grave"
+    elif score >= 3: return "Moderada"
+    elif score >= 1: return "Leve"
     return "Seguro"
 
 
@@ -179,7 +166,6 @@ def gerar_familias(total_alvo=80):
         raca_preta         = random.random() < PROBABILIDADES["raca_preta"]
         doenca_recente     = random.random() < PROBABILIDADES["doenca_recente"]
         saude_mental       = random.random() < PROBABILIDADES["saude_mental"]
-        tipo_casa, pts_casa = _sortear_moradia()
 
         familias[id_unico] = {
             "responsavel":        nome_responsavel,
@@ -187,14 +173,13 @@ def gerar_familias(total_alvo=80):
             "latitude":           bairro_obj['lat'],
             "longitude":          bairro_obj['lng'],
             "renda_sm":           renda,
-            "tipo_moradia":       tipo_casa,
             "tem_menor_18":       tem_menor,
             "escolaridade_baixa": escolaridade_baixa,
             "raca_preta":         raca_preta,
             "doenca_recente":     doenca_recente,
             "saude_mental":       saude_mental,
             "ja_recebe_auxilio":  recebe_auxilio,
-            "inseguranca":        classificar_inseguranca(renda, tem_menor, escolaridade_baixa, pts_casa),
+            "inseguranca":        classificar_inseguranca(renda, tem_menor, escolaridade_baixa),
         }
 
         contagem_bairros[nome_b] += 1

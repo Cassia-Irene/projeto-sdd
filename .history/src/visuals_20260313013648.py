@@ -210,6 +210,7 @@ def _grafico_privacoes_acumuladas():
 
 
 # ── Mapa de calor ─────────────────────────────────────────────────────────────
+# ── Mapa de calor Refatorado (CORRIGIDO) ──────────────────────────────────────
 def _gerar_mapa_calor():
     # Carrega os dados reais das famílias e as coordenadas dos bairros
     familias = carregar_familias()

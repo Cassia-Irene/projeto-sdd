@@ -73,7 +73,7 @@ def _sortear_renda():
     return round(random.uniform(5.0, 8.0), 2)
 
 
-def classificar_inseguranca(renda, tem_menor, escolaridade_baixa, pts_moradia):
+def classificar_inseguranca(renda, tem_menor, escolaridade_baixa, p):
     """
     Classifica o nível de insegurança alimentar com base em três fatores
     validados pelo diagnóstico MIANMA/SEDES 2024/25 para a Ilha do Maranhão.
@@ -103,11 +103,9 @@ def classificar_inseguranca(renda, tem_menor, escolaridade_baixa, pts_moradia):
     if escolaridade_baixa:
         score += 1
 
-    score += pts_moradia
-
-    if score >= 6:   return "Grave"
-    elif score >= 4: return "Moderada"
-    elif score >= 2: return "Leve"
+    if score >= 5:   return "Grave"
+    elif score >= 3: return "Moderada"
+    elif score >= 1: return "Leve"
     return "Seguro"
 
 
