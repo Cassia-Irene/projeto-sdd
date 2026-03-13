@@ -269,23 +269,14 @@ def _gerar_linhas_tabela():
     dados = carregar_familias()
     lista_familias = list(dados.values())
     familias_prioritarias = merge_sort_familias(lista_familias)
- 
-    cor_risco = {
-        'Grave':    '#e84040',
-        'Moderada': '#f59e0b',
-        'Leve':     '#38bdf8',
-        'Seguro':   '#34d399',
-    }
-    # Moradias precárias recebem destaque visual
-    moradias_criticas = {'Palafita', 'Taipa/Barro', 'Casa de Madeira'}
- 
+    cor_risco = {'Grave': '#e84040', 'Moderada': '#f59e0b',
+                 'Leve': '#38bdf8',  'Seguro': '#34d399'}
     linhas = ""
     for i, f in enumerate(familias_prioritarias):
-        moradia  = f.get('tipo_moradia', '—')
-        infra    = f"⚠️ {moradia}" if moradia in moradias_criticas else f"✓ {moradia}"
+        infra    = "⚠️ Crítica" if f['sem_banheiro'] or f['sem_coleta'] else "✓ Regular"
         cor      = cor_risco.get(f['inseguranca'], '#fff')
         auxilio  = "✓ Sim" if f['ja_recebe_auxilio'] else "✗ Não"
- 
+        # data-* usados pelo filtro JavaScript
         linhas += f"""
         <tr data-risco="{f['inseguranca']}" data-auxilio="{'sim' if f['ja_recebe_auxilio'] else 'nao'}" data-bairro="{f['bairro']}">
             <td class="rank">#{i+1}</td>

@@ -11,7 +11,7 @@ def coletar_dados_pluviometricos():
     
     # Período de coleta
     start_date = "2026-01-01"
-    end_date = "2026-03-13"
+    end_date = "2026-03-10"
     
     # Endpoint Open-Meteo 
     url = f"https://archive-api.open-meteo.com/v1/archive?latitude={latitude}&longitude={longitude}&start_date={start_date}&end_date={end_date}&daily=precipitation_sum&timezone=America%2FSao_Paulo"
