@@ -200,8 +200,8 @@ def gerar_familias(total_alvo=80):
             "doenca_recente":     doenca_recente,
             "saude_mental":       saude_mental,
             "ja_recebe_auxilio":  recebe_auxilio,
-            "vulnerabilidade_territorial": vuln_territorial,
-            "inseguranca":        classificar_inseguranca(renda, tem_menor, escolaridade_baixa, pts_casa, vuln_territorial),
+            "inseguranca":        classificar_inseguranca(renda, tem_menor, escolaridade_baixa, pts_casa),
+            "vul"
         }
 
         contagem_bairros[nome_b] += 1

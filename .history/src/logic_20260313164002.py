@@ -65,6 +65,7 @@ def calcular_risco_enchente_vs_chuva():
 
 def obter_dados_mapa_calor():
     """Retorna lats, lngs e níveis de risco para o HeatMap."""
+def obter_dados_mapa_calor():
 
     familias      = carregar_familias()
     bairros_coords = carregar_bairros_coords()

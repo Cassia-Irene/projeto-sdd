@@ -185,7 +185,6 @@ def gerar_familias(total_alvo=80):
         doenca_recente     = random.random() < PROBABILIDADES["doenca_recente"]
         saude_mental       = random.random() < PROBABILIDADES["saude_mental"]
         tipo_casa, pts_casa = _sortear_moradia()
-        vuln_territorial = bairro_obj.get('vulnerabilidade_territorial', 2)
 
         familias[id_unico] = {
             "responsavel":        nome_responsavel,
@@ -200,8 +199,7 @@ def gerar_familias(total_alvo=80):
             "doenca_recente":     doenca_recente,
             "saude_mental":       saude_mental,
             "ja_recebe_auxilio":  recebe_auxilio,
-            "vulnerabilidade_territorial": vuln_territorial,
-            "inseguranca":        classificar_inseguranca(renda, tem_menor, escolaridade_baixa, pts_casa, vuln_territorial),
+            "inseguranca":        classificar_inseguranca(renda, tem_menor, escolaridade_baixa, pts_casa),
         }
 
         contagem_bairros[nome_b] += 1

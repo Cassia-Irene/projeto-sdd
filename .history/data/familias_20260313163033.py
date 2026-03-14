@@ -73,7 +73,7 @@ def _sortear_renda():
     return round(random.uniform(5.0, 8.0), 2)
 
 
-def classificar_inseguranca(renda, tem_menor, escolaridade_baixa, pts_moradia, vulnerabilidade_territorial=2):
+def classificar_inseguranca(renda, tem_menor, escolaridade_baixa, pts_moradia):
     """
     Classifica o nível de insegurança alimentar com base em três fatores
     validados pelo diagnóstico MIANMA/SEDES 2024/25 para a Ilha do Maranhão.
@@ -106,12 +106,9 @@ def classificar_inseguranca(renda, tem_menor, escolaridade_baixa, pts_moradia, v
     score += pts_moradia
 
     if vulnerabilidade_territorial == 3:
-        score += 2
-    elif vulnerabilidade_territorial == 2:
-        score += 1
 
-    if score >= 7:   return "Grave"
-    elif score >= 5: return "Moderada"
+    if score >= 6:   return "Grave"
+    elif score >= 4: return "Moderada"
     elif score >= 2: return "Leve"
     return "Seguro"
 
@@ -185,7 +182,6 @@ def gerar_familias(total_alvo=80):
         doenca_recente     = random.random() < PROBABILIDADES["doenca_recente"]
         saude_mental       = random.random() < PROBABILIDADES["saude_mental"]
         tipo_casa, pts_casa = _sortear_moradia()
-        vuln_territorial = bairro_obj.get('vulnerabilidade_territorial', 2)
 
         familias[id_unico] = {
             "responsavel":        nome_responsavel,
@@ -200,8 +196,7 @@ def gerar_familias(total_alvo=80):
             "doenca_recente":     doenca_recente,
             "saude_mental":       saude_mental,
             "ja_recebe_auxilio":  recebe_auxilio,
-            "vulnerabilidade_territorial": vuln_territorial,
-            "inseguranca":        classificar_inseguranca(renda, tem_menor, escolaridade_baixa, pts_casa, vuln_territorial),
+            "inseguranca":        classificar_inseguranca(renda, tem_menor, escolaridade_baixa, pts_casa),
         }
 
         contagem_bairros[nome_b] += 1
