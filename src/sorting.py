@@ -17,8 +17,8 @@ def tem_prioridade(familia_A, familia_B):
     elif risco_A < risco_B:
         return False
     else:
-        # 2º Critério (Desempate): Menor renda (agora usando 'renda_sm')
-        return familia_A["renda_sm"] < familia_B["renda_sm"]
+        # 2º Critério (Desempate): Menor renda (agora usando 'renda_pc_sm')
+        return familia_A["renda_pc_sm"] < familia_B["renda_pc_sm"]
 
 def merge_sort_familias(lista):
     if len(lista) <= 1:
