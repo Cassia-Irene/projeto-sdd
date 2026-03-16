@@ -32,10 +32,9 @@ def contar_por_categoria():
 
 
 def calcular_risco_enchente_vs_chuva():
-    """
-    Cruza famílias em situação de risco (Grave ou Moderada) com o histórico de chuvas. Quando a precipitação supera 15mm/dia,
-    aciona o protocolo de alerta de estoque emergencial.
-    """
+    
+    #Cruza famílias em situação de risco (Grave ou Moderada) com o histórico de chuvas.
+    
     familias = carregar_familias()
     chuvas   = carregar_chuvas()
 
@@ -50,7 +49,7 @@ def calcular_risco_enchente_vs_chuva():
         datas.append(dia['data'])
         mm = dia['chuva_mm']
         chuva_mm.append(mm)
-        # Limiar: chuva > 15mm dispara alerta de distribuição emergencial
+        # Limiar: chuva > 15mm
         alerta_familias.append(familias_em_risco if mm > LIMIAR_CHUVA_EMERGENCIAL_MM else 0)
 
     return datas, chuva_mm, alerta_familias

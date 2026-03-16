@@ -7,24 +7,27 @@ fake = Faker('pt_BR')
 TOKEN = "de2273ac837e9af9d8a16a725cba72a0"
 COD_IBGE_SLZ = "2111300"
 
-# ── Probabilidades calibradas pelo MIANMA/SEDES 2024/25 ──────────────────────
+"""
+# Probabilidades calibradas pelo MIANMA/SEDES 2024/25
 # Fonte: Diagnóstico da Insegurança Alimentar e Nutricional — Região da Ilha
 # do Maranhão, Secretaria de Estado do Desenvolvimento Social, outubro 2025.
 #
 # tem_menor_18      → 30,03% dos domicílios tinham menores de 18 anos.
-#                     Domicílios com menores: IG grave 10,31% vs 3,56% (Tab. 6)
-#
+#                     Domicílios com menores: IG grave 10,31% vs 3,56%
+
 # escolaridade_baixa → sem escolaridade + ensino fundamental = 49% da amostra.
-#                     IG grave sobe a 14,29% entre analfabetos (Tab. 9)
-#
+#                      IG grave sobe a 14,29% entre analfabetos 
+
 # raca_preta        → 33,04% autodeclarados pretos. Apenas 31,51% desse grupo
-#                     em segurança alimentar vs 50% pardos/brancos (Tab. 7)
-#
+                      em segurança alimentar vs 50% pardos/brancos
+
 # doenca_recente    → 31,09% reportaram doença nos 3 meses anteriores.
-#                     Correlacionado com insegurança moderada/grave (Tab. 12)
-#
+#                     Correlacionado com insegurança moderada/grave
+
 # saude_mental      → 21,65% relataram depressão, ansiedade ou pânico.
-#                     Só 21,43% desses estão em segurança alimentar (Tab. 14)
+#                     Só 21,43% desses estão em segurança alimentar
+"""
+
 PROBABILIDADES = {
     "tem_menor_18": 0.30,
     "escolaridade_baixa": 0.49,
@@ -58,7 +61,7 @@ MORADIAS_POR_TERRITORIO = {
     ],
 }
 
-# ── Distribuição de renda alinhada ao perfil real de São Luís ─────────────────
+# Distribuição de renda alinhada ao perfil real de São Luís
 # SEDES: 39% até 1SM · 34,65% de 1–3SM · 16,23% de 3–5SM · 10,09% acima de 5
 FAIXAS_RENDA_POR_TERRITORIO = {
     1: [

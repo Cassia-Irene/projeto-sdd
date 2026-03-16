@@ -27,7 +27,7 @@ def automatizar_extracao_coordenadas():
             return
 
         # 3. Cruzamento dinâmico com famílias para identificar bairros atendidos
-        # Importante: O conjunto (Set) identifica quem já recebe auxílio
+        # Conjunto (Set) identifica quem já recebe auxílio
         caminho_familias = 'data/familias_slz.json'
         set_bairros_atendidos = set()
         
@@ -42,7 +42,7 @@ def automatizar_extracao_coordenadas():
             except Exception as e:
                 print(f"⚠️ Aviso: Não foi possível ler as famílias para status de auxílio: {e}")
 
-        # 4. Estruturação simplificada (Base para o gerar_entregas.py)
+        # 4. gerar_entregas.py
         bairros_coords = []
         for _, linha in df.iterrows():
             nome_bairro = str(linha[col_bairro]).strip()
@@ -51,7 +51,7 @@ def automatizar_extracao_coordenadas():
                 "nome": nome_bairro,
                 "lat": float(linha[col_lat]),
                 "lng": float(linha[col_long]),
-                "atendido": nome_bairro in set_bairros_atendidos # Define o conjunto dinâmico
+                "atendido": nome_bairro in set_bairros_atendidos
             })
 
         # 5. Persistência dos dados

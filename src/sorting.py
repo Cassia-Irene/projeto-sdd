@@ -25,7 +25,7 @@ def merge_sort_familias(lista):
         return lista
     
     meio = len(lista) // 2
-    esquerda = merge_sort_familias(lista[:meio]) # Lembra do fatiamento?
+    esquerda = merge_sort_familias(lista[:meio])
     direita = merge_sort_familias(lista[meio:])
     
     return merge(esquerda, direita)
@@ -35,7 +35,7 @@ def merge(esquerda, direita):
     i = j = 0
     
     while i < len(esquerda) and j < len(direita):
-        # Aqui entra a sua regra de negócio!
+        
         if tem_prioridade(esquerda[i], direita[j]):
             resultado.append(esquerda[i])
             i += 1

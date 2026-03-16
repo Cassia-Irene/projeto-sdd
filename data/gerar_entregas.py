@@ -8,11 +8,11 @@ NOMES_MESES = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun']
 def _chuva_mensal_media(chuvas):
     """
     Agrega os dados diários de chuva em médias mensais para Jan–Jun.
-    Retorna uma lista de 6 floats (mm médio por mês).
+    Retorna uma lista (mm médio por mês).
     """
-    acumulado = {m: [] for m in range(6)}   # 0=Jan … 5=Jun
+    acumulado = {m: [] for m in range(6)}  
     for dia in chuvas:
-        mes_idx = int(dia['data'][5:7]) - 1  # "2025-03-15" → 2
+        mes_idx = int(dia['data'][5:7]) - 1  
         if mes_idx < 6:
             acumulado[mes_idx].append(dia['chuva_mm'])
     return [
@@ -23,7 +23,7 @@ def _chuva_mensal_media(chuvas):
 def gerar_historico_sazonal_entregas():
     print("📦 Gerando Matriz de Distribuição Sazonal (Jan–Jun)...")
 
-    # ── Carrega dados base ────────────────────────────────────────────────────
+    # Carrega dados base
     with open('data/bairros_coords.json', 'r', encoding='utf-8') as f:
         bairros = json.load(f)
 
@@ -32,7 +32,7 @@ def gerar_historico_sazonal_entregas():
 
     media_chuva_por_mes = _chuva_mensal_media(chuvas)  # [mm_jan, mm_fev, …]
 
-    # ── MATRIZ (lista de listas): Bairros × Meses Jan–Jun ────────────────────
+    # ── MATRIZ (lista de listas): Bairros × Meses Jan–Jun
     # Linha  = bairro
     # Coluna = mês (0=Jan … 5=Jun)
     # Célula = cestas entregues naquele bairro naquele mês
@@ -51,7 +51,7 @@ def gerar_historico_sazonal_entregas():
 
             linha_bairro.append(quantidade)
 
-            # TUPLA — estrutura imutável para o registro histórico
+            # TUPLA — Registro histórico
             # (data_referencia, bairro, quantidade)
             historico_tuplas.append(
                 (f"2025-{mes_idx+1:02d}", b['nome'], quantidade)
@@ -59,10 +59,10 @@ def gerar_historico_sazonal_entregas():
 
         matriz_entregas.append(linha_bairro)
 
-    # ── Persiste resultados ───────────────────────────────────────────────────
+    # Persiste resultados
     dados_finais = {
         "matriz":           matriz_entregas,
-        "tuplas_registro":  historico_tuplas,   # salvo como lista de listas (JSON não tem tuplas)
+        "tuplas_registro":  historico_tuplas,
         "meses":            NOMES_MESES,
         "bairros":          [b['nome'] for b in bairros]
     }

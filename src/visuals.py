@@ -54,10 +54,10 @@ def _dados_cestas_vs_chuva():
         for mes_idx, qtd in enumerate(linha_bairro[:n_meses]):
             cestas_por_mes[mes_idx] += qtd
 
-    # Média de chuva mensal (Jan–Jun 2025) a partir da lista de dicionários
+    # Média de chuva mensal
     acum = {m: [] for m in range(n_meses)}
     for dia in chuvas:
-        mes_idx = int(dia['data'][5:7]) - 1   # "2025-03-15" → 2
+        mes_idx = int(dia['data'][5:7]) - 1 
         if 0 <= mes_idx < n_meses:
             acum[mes_idx].append(dia['chuva_mm'])
 

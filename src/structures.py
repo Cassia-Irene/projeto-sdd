@@ -2,7 +2,7 @@ import os
 import json
 
 
-# ── 1. CARREGAMENTO ───────────────────────────────────────────────────────────
+# 1. CARREGAMENTO
 
 def carregar_bairros_coords():
     caminho = os.path.join('data', 'bairros_coords.json')
@@ -24,40 +24,32 @@ def carregar_chuvas():
 
 def carregar_entregas():
     """
-    Carrega o histórico de entregas e retorna uma lista de TUPLAS imutáveis
+    Carrega o histórico de entregas e retorna uma lista de TUPLAS
     no formato (data, bairro, quantidade).
-
-    Tuplas são usadas aqui porque cada entrega é um fato histórico:
-    não pode ser alterado retroativamente — garante integridade para auditoria.
     """
     caminho = os.path.join('data', 'entregas_sazonais.json')
     try:
         with open(caminho, 'r', encoding='utf-8') as f:
             dados = json.load(f)
-        # Converte cada lista [data, bairro, qtd] em tupla imutável
+        # Converte cada lista [data, bairro, qtd] em tupla
         return [tuple(t) for t in dados.get('tuplas_registro', [])]
     except FileNotFoundError:
         return []
 
 
-# ── 2. CONJUNTO: bairros atendidos (leitura do campo atendido no JSON) ────────
+# 2. CONJUNTO: bairros atendidos
 
 def construir_conjunto_bairros_atendidos():
     """
     Constrói dinamicamente o SET de bairros já atendidos por algum programa.
     O campo 'atendido' é populado pelo processar_bairros.py no momento da
     extração, cruzando com o familias_slz.json.
-
-    SET justificado:
-    - Busca O(1): 'este bairro já é atendido?' é instantâneo
-    - Diferença de conjuntos para achar bairros descobertos
-    - Elimina duplicatas automaticamente
     """
     bairros = carregar_bairros_coords()
     return {b['nome'] for b in bairros if b.get('atendido')}
 
 
-# ── 3. MATRIZ: distribuição de cestas por bairro × mês ───────────────────────
+# 3. MATRIZ: distribuição de cestas por bairro × mês
 
 def construir_matriz_cestas():
     """
