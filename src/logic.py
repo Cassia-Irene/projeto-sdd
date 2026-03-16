@@ -1,17 +1,18 @@
 from src.structures import (
-    carregar_bairros_coords, carregar_familias, carregar_chuvas,
-    construir_conjunto_bairros_atendidos
+    carregar_bairros_coords, carregar_familias, carregar_chuvas, construir_conjunto_bairros_atendidos
 )
 
+# Limiar único
+LIMIAR_CHUVA_EMERGENCIAL_MM = 15.0
 
-# ── 1. CONJUNTOS: cobertura territorial ───────────────────────────────────────
+# 1. CONJUNTOS: cobertura territorial
 
 def identificar_bairros_desassistidos():
     """
     Operação de DIFERENÇA entre conjuntos:
       todos_os_bairros  -  bairros_atendidos  =  bairros_descobertos
 
-    Complexidade O(n) — muito mais eficiente que comparar listas aninhadas.
+    Complexidade O(n)
     """
     dados_bairros    = carregar_bairros_coords()
     nomes_totais     = {b['nome'] for b in dados_bairros}
@@ -19,27 +20,21 @@ def identificar_bairros_desassistidos():
     return nomes_totais - bairros_atendidos
 
 
-# ── 2. ANÁLISE DE VULNERABILIDADE ─────────────────────────────────────────────
+# 2. ANÁLISE DE VULNERABILIDADE 
 
 def contar_por_categoria():
-    """Conta famílias por nível de insegurança alimentar."""
+    #Conta famílias por nível de insegurança alimentar.
     todas = carregar_familias()
     resumo = {"Grave": 0, "Moderada": 0, "Leve": 0, "Seguro": 0}
     for d in todas.values():
-        cat = d.get("inseguranca", "Seguro")
-        resumo[cat] += 1
+        resumo[d.get("inseguranca","Seguro")] += 1
     return resumo
 
 
 def calcular_risco_enchente_vs_chuva():
     """
-    Cruza famílias em situação de risco (Grave ou Moderada) com o
-    histórico de chuvas. Quando a precipitação supera 15mm/dia,
+    Cruza famílias em situação de risco (Grave ou Moderada) com o histórico de chuvas. Quando a precipitação supera 15mm/dia,
     aciona o protocolo de alerta de estoque emergencial.
-
-    Substituição das antigas variáveis de saneamento (sem_coleta,
-    sem_banheiro) pelo indicador de insegurança alimentar diretamente —
-    metodologicamente mais coerente com o objetivo do sistema.
     """
     familias = carregar_familias()
     chuvas   = carregar_chuvas()
@@ -56,17 +51,45 @@ def calcular_risco_enchente_vs_chuva():
         mm = dia['chuva_mm']
         chuva_mm.append(mm)
         # Limiar: chuva > 15mm dispara alerta de distribuição emergencial
-        alerta_familias.append(familias_em_risco if mm > 15.0 else 0)
+        alerta_familias.append(familias_em_risco if mm > LIMIAR_CHUVA_EMERGENCIAL_MM else 0)
 
     return datas, chuva_mm, alerta_familias
 
+def resumo_vulnerabilidade_por_territorio():
 
-# ── 3. LÓGICA ESPACIAL ────────────────────────────────────────────────────────
+    familias = carregar_familias()
+    resultado = {
+        1: {"Grave": 0, "Moderada": 0, "Leve": 0, "Seguro": 0, "renda_pc": [], "membros": []},
+        2: {"Grave": 0, "Moderada": 0, "Leve": 0, "Seguro": 0, "renda_pc": [], "membros": []},
+        3: {"Grave": 0, "Moderada": 0, "Leve": 0, "Seguro": 0, "renda_pc": [], "membros": []},
+    }
+
+    for d in familias.values():
+        vuln = d.get('vulnerabilidade_territorial', 2)
+        if vuln not in resultado:
+            continue
+        resultado[vuln][d.get('inseguranca', 'Seguro')] += 1
+        resultado[vuln]['renda_pc'].append(d.get('renda_pc_sm', 0))
+        resultado[vuln]['membros'].append(d.get('membros', 3))
+
+    for nivel in resultado:
+        rpc = resultado[nivel].pop('renda_pc')
+        mb = resultado[nivel].pop('membros')
+        resultado[nivel]['media_renda_pc'] = round(sum(rpc) / len(rpc), 3) if rpc else 0
+        resultado[nivel]['media_membros']  = round(sum(mb) / len(mb), 2) if mb else 0
+    
+    return resultado
+
+
+# 3. LÓGICA ESPACIAL
 
 def obter_dados_mapa_calor():
-    """Retorna lats, lngs e níveis de risco para o HeatMap."""
+    """
+    Retorna lats, lngs e níveis de risco para o HeatMap.
+    O peso combina nível de insegurança da família com vulnerabilidade territorial do bairro.
+    """
 
-    familias      = carregar_familias()
+    familias = carregar_familias()
     bairros_coords = carregar_bairros_coords()
 
     # Lookup O(1): bairro → vulnerabilidade territorial

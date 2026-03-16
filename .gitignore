@@ -17,5 +17,6 @@ __pycache__/
 
 # 5. Configurações de IDE e SO
 .vscode/
+.history/
 .DS_Store
 Thumbs.db
