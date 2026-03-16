@@ -1,34 +1,35 @@
 import json
 import os
 import folium
-from folium.plugins import HeatMap
-from src.logic import contar_por_categoria, calcular_risco_enchente_vs_chuva, obter_dados_mapa_calor, LIMIAR_CHUVA_EMERGENCIAL_MM
+from src.logic import contar_por_categoria, calcular_risco_enchente_vs_chuva, LIMIAR_CHUVA_EMERGENCIAL_MM, identificar_bairros_desassistidos
 from src.structures import carregar_familias, carregar_chuvas, construir_matriz_cestas
 from src.sorting import merge_sort_familias
 
 
 # ── Mapa de calor
 def _gerar_mapa_calor():
-    lats, lngs, pesos = obter_dados_mapa_calor()
     familias = carregar_familias()
+
+    cor_risco = {
+        'Grave':    '#e84040',
+        'Moderada': '#f59e0b',
+        'Leve':     '#38bdf8',
+        'Seguro':   '#34d399',
+    }
 
     mapa = folium.Map(location=[-2.5391, -44.2829], zoom_start=12, tiles='CartoDB positron')
 
-    heat_data = []
-    bairros_com_familia = set()
-
-    for (lat, lng, peso), dados in zip(zip(lats, lngs, pesos), familias.values()):
-        heat_data.append([lat, lng, peso])
-        bairros_com_familia.add((dados.get('bairro'), lat, lng))
-
-    HeatMap(heat_data, radius=18, blur=14,
-            gradient={0.2: '#3b82f6', 0.5: '#f59e0b', 1.0: '#ef4444'}).add_to(mapa)
-
-    for nome, lat, lng in bairros_com_familia:
+    for dados in familias.values():
+        nivel = dados.get('inseguranca', 'Seguro')
+        cor   = cor_risco.get(nivel, '#fff')
         folium.CircleMarker(
-            location=[lat, lng], radius=3,
-            color="#17978d", fill=True, fill_opacity=0.8,
-            tooltip=f"📍 {nome}"
+            location=[dados['latitude'], dados['longitude']],
+            radius=6,
+            color=cor,
+            fill=True,
+            fill_color=cor,
+            fill_opacity=0.8,
+            tooltip=f"📍 {dados.get('bairro')} — {nivel}"
         ).add_to(mapa)
 
     return mapa._repr_html_()
@@ -413,6 +414,7 @@ def gerar_dashboard_html():
     total      = sum(resumo.values())
     graves     = resumo.get('Grave', 0)
     pct_graves = round(graves / total * 100) if total else 0
+    desassistidos = len(identificar_bairros_desassistidos())
 
     dados = carregar_familias()
     bairros_unicos = sorted(set(f['bairro'] for f in dados.values()))
@@ -434,8 +436,8 @@ def gerar_dashboard_html():
     --bg:       #0f1923;
     --surface:  #162330;
     --border:   #1e3a4a;
-    --text:     #e8f4f8;
-    --muted:    #8ab4c2;
+    --text:     #ffffff;
+    --muted:    #ffffff;
     --grave:    #e84040;
     --moderada: #f59e0b;
     --leve:     #38bdf8;
@@ -459,9 +461,9 @@ def gerar_dashboard_html():
     font-weight: 700; color: var(--text); line-height: 1.3;
   }}
   .header-left h1 span {{ color: var(--accent); }}
-  .header-left p {{ font-size: 10px; color: var(--muted); margin-top: 5px; font-family: 'Space Mono', monospace; line-height: 1.5; }}
+  .header-left p {{ font-size: 12px; color: var(--muted); margin-top: 5px; font-family: 'Space Mono', monospace; line-height: 1.5; }}
   .header-badges {{ display: flex; gap: 8px; flex-wrap: wrap; }}
-  .badge {{ font-family: 'Space Mono', monospace; font-size: 10px; padding: 4px 10px; border-radius: 4px; border: 1px solid; white-space: nowrap; }}
+  .badge {{ font-family: 'Space Mono', monospace; font-size: 12px; padding: 4px 10px; border-radius: 4px; border: 1px solid; white-space: nowrap; }}
   .badge-grave    {{ border-color: var(--grave);    color: var(--grave);    background: rgba(232,64,64,.1); }}
   .badge-moderada {{ border-color: var(--moderada); color: var(--moderada); background: rgba(245,158,11,.1); }}
   .badge-total    {{ border-color: var(--accent);   color: var(--accent);   background: rgba(56,189,248,.1); }}
@@ -476,7 +478,7 @@ def gerar_dashboard_html():
     background: var(--surface); border: 1px solid var(--border);
     border-radius: 10px; padding: 16px; margin-bottom: 20px;
   }}
-  .card-title {{ font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 4px; line-height: 1.4; }}
+  .card-title {{ font-family: 'Space Mono', monospace; font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 4px; line-height: 1.4; }}
   .card-sub {{ font-size: 11px; color: var(--muted); margin-bottom: 14px; line-height: 1.5; }}
   .grid-2 {{ display: grid; grid-template-columns: 1fr; gap: 20px; margin-bottom: 20px; }}
   .chart-container {{ position: relative; width: 100%; height: 260px; }}
@@ -554,7 +556,7 @@ def gerar_dashboard_html():
   <div class="header-badges">
     <span class="badge badge-total">👥 {total} famílias</span>
     <span class="badge badge-grave">🔴 {graves} graves ({pct_graves}%)</span>
-    <span class="badge badge-moderada">⚠️ Jan–Jun crítico</span>
+    <span class="badge badge-moderada">📍 {desassistidos} bairros sem cobertura</span>
   </div>
 </header>
 
@@ -593,7 +595,7 @@ def gerar_dashboard_html():
       <button class="btn-limpar" onclick="limparFiltros()">✕ Limpar</button>
     </div>
     <div class="contador-resultado" id="contador">
-      Exibindo <span id="contador-num">{total}</span> famílias
+      Exibindo <span id="contador-num">{total}</span> família(s)
     </div>
     <div class="table-scroll">
       <table>
@@ -739,8 +741,8 @@ def gerar_dashboard_html():
         }},
         {{
           label: 'Famílias em alerta', data: dadosChuva.alerta,
-          borderColor: '#f87171', backgroundColor: 'transparent',
-          borderDash: [5, 4], tension: 0.3, pointRadius: 5, pointHoverRadius: 7,
+          borderColor: '#f87171', backgroundColor: 'rgba(248,113,113,0.15)',
+          fill: true, tension: 0.4, pointRadius: 5, pointHoverRadius: 7,
           pointBackgroundColor: '#f87171', yAxisID: 'y2',
         }}
       ]
