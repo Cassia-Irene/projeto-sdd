@@ -52,7 +52,7 @@ O sistema gera um painel estratégico em HTML que permite uma análise visual in
     └── (Scripts de processamento de dados sintéticos)
 ```
 
-## 👩‍💻 Autoras
+## 👩‍💻 Devs
 * **Cássia Irene | [GitHub](https://github.com/Cassia-Irene)**
 * **Leonardo Ferreira | [GitHub](https://github.com/leonardoferrza)**
 * **Melissa Wolff | [GitHub](https://github.com/melwolff13)** 
