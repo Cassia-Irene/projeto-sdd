@@ -38,7 +38,7 @@ O sistema gera um painel estratégico em HTML que permite uma análise visual in
 /
 ├── main.py            # Orquestração e execução do Dashboard
 ├── dashboard_slz.html # Interface visual interativa gerada
-├── requirements.txt   # Dependências (Folium, Matplotlib, etc.)
+├── requirements.txt   # Dependências (Folium, *cpmpletar*, etc.)
 ├── README.md          # Documentação técnica do ecossistema
 ├── /src               # Camadas de processamento e lógica
 │   ├── logic.py       # Core: Regras de negócio e análise territorial
