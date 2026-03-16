@@ -17,7 +17,7 @@
         "nome": "Vila Nova República",
         "lat": -2.486264951287893,
         "lng": -44.21294492865584,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 3
     },
     {
@@ -31,7 +31,7 @@
         "nome": "Alto do Calhau",
         "lat": -2.488594952732605,
         "lng": -44.26493992761938,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 1
     },
     {
@@ -52,7 +52,7 @@
         "nome": "Calhau",
         "lat": -2.4914399999999546,
         "lng": -44.26785999999999,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 1
     },
     {
@@ -73,7 +73,7 @@
         "nome": "Cutim",
         "lat": -2.4946491148161227,
         "lng": -44.25873947797295,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 3
     },
     {
@@ -101,7 +101,7 @@
         "nome": "Planalto Turu I",
         "lat": -2.500259999999969,
         "lng": -44.21593999999993,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 2
     },
     {
@@ -129,7 +129,7 @@
         "nome": "Village dos Jasmins",
         "lat": -2.50125495833403,
         "lng": -44.31091491799378,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 2
     },
     {
@@ -157,7 +157,7 @@
         "nome": "Turu",
         "lat": -2.5033999999999423,
         "lng": -44.23485999999997,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 2
     },
     {
@@ -206,7 +206,7 @@
         "nome": "Jardim Renascença",
         "lat": -2.507159999999942,
         "lng": -44.29482999999993,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 1
     },
     {
@@ -248,21 +248,21 @@
         "nome": "Jardim São Francisco",
         "lat": -2.5113099999999804,
         "lng": -44.30729999999994,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 1
     },
     {
         "nome": "São Francisco",
         "lat": -2.5113099999999804,
         "lng": -44.30729999999994,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 1
     },
     {
         "nome": "Jaracaty",
         "lat": -2.51132999999993,
         "lng": -44.28881999999993,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 3
     },
     {
@@ -381,7 +381,7 @@
         "nome": "Camboa",
         "lat": -2.526359999999954,
         "lng": -44.29243999999994,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 3
     },
     {
@@ -395,7 +395,7 @@
         "nome": "Cajupary",
         "lat": -2.526569999999936,
         "lng": -44.240309999999965,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 2
     },
     {
@@ -437,14 +437,14 @@
         "nome": "Itapera",
         "lat": -2.526569999999936,
         "lng": -44.240309999999965,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 2
     },
     {
         "nome": "Jacamim",
         "lat": -2.526569999999936,
         "lng": -44.240309999999965,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 2
     },
     {
@@ -458,14 +458,14 @@
         "nome": "Parque Smithland",
         "lat": -2.526569999999936,
         "lng": -44.240309999999965,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 2
     },
     {
         "nome": "Residencial José Reinaldo Tavares",
         "lat": -2.526569999999936,
         "lng": -44.240309999999965,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 2
     },
     {
@@ -479,7 +479,7 @@
         "nome": "Solar dos Lusitanos",
         "lat": -2.526569999999936,
         "lng": -44.240309999999965,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 2
     },
     {
@@ -493,7 +493,7 @@
         "nome": "Tauá-Mirim",
         "lat": -2.526569999999936,
         "lng": -44.240309999999965,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 2
     },
     {
@@ -514,7 +514,7 @@
         "nome": "Vila Capim",
         "lat": -2.526569999999936,
         "lng": -44.240309999999965,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 2
     },
     {
@@ -528,7 +528,7 @@
         "nome": "Vila Cutia",
         "lat": -2.526569999999936,
         "lng": -44.240309999999965,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 3
     },
     {
@@ -556,7 +556,7 @@
         "nome": "Itapiracó",
         "lat": -2.5296999999999343,
         "lng": -44.21365999999995,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 2
     },
     {
@@ -633,7 +633,7 @@
         "nome": "Planalto Anil II",
         "lat": -2.5354299999999625,
         "lng": -44.21464999999995,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 2
     },
     {
@@ -682,7 +682,7 @@
         "nome": "Cidade Nova do Gapara",
         "lat": -2.537654944480238,
         "lng": -44.29074491573998,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 3
     },
     {
@@ -696,7 +696,7 @@
         "nome": "Belira",
         "lat": -2.5388270464514733,
         "lng": -44.295151196670936,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 2
     },
     {
@@ -731,7 +731,7 @@
         "nome": "Apeadouro",
         "lat": -2.539949999999976,
         "lng": -44.27627999999999,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 2
     },
     {
@@ -752,7 +752,7 @@
         "nome": "Cruzeiro do Anil",
         "lat": -2.5402899999999704,
         "lng": -44.23145999999997,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 2
     },
     {
@@ -815,7 +815,7 @@
         "nome": "Pereira",
         "lat": -2.542169999999942,
         "lng": -44.28222999999997,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 2
     },
     {
@@ -829,7 +829,7 @@
         "nome": "Goiabal",
         "lat": -2.542589999999961,
         "lng": -44.29698999999994,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 2
     },
     {
@@ -878,7 +878,7 @@
         "nome": "Jardim das Margaridas",
         "lat": -2.545839999999941,
         "lng": -44.21006999999997,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 2
     },
     {
@@ -913,7 +913,7 @@
         "nome": "Vila São Luís",
         "lat": -2.546829999999943,
         "lng": -44.33101999999997,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 3
     },
     {
@@ -927,7 +927,7 @@
         "nome": "Cohab Anil III",
         "lat": -2.547259999999937,
         "lng": -44.21959999999996,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 2
     },
     {
@@ -955,14 +955,14 @@
         "nome": "João Paulo",
         "lat": -2.5486399999999776,
         "lng": -44.272089999999935,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 2
     },
     {
         "nome": "São Raimundo",
         "lat": -2.5493799999999283,
         "lng": -44.32507999999996,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 2
     },
     {
@@ -1011,14 +1011,14 @@
         "nome": "Macaúba",
         "lat": -2.5538458564061486,
         "lng": -44.23679511082042,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 2
     },
     {
         "nome": "Residencial Santo Antônio",
         "lat": -2.554649999999981,
         "lng": -44.244959999999935,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 3
     },
     {
@@ -1032,28 +1032,28 @@
         "nome": "Filipinho",
         "lat": -2.554839999999956,
         "lng": -44.26452999999998,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 2
     },
     {
         "nome": "Gancharia",
         "lat": -2.5550199999999563,
         "lng": -44.32328999999999,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 3
     },
     {
         "nome": "Floresta",
         "lat": -2.555146668606453,
         "lng": -44.232176246357966,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 2
     },
     {
         "nome": "Planalto Anil IV",
         "lat": -2.555409999999938,
         "lng": -44.22610999999995,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 2
     },
     {
@@ -1067,7 +1067,7 @@
         "nome": "Sítio Leal",
         "lat": -2.5560299999999643,
         "lng": -44.26344999999998,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 2
     },
     {
@@ -1081,7 +1081,7 @@
         "nome": "Anjo da Guarda",
         "lat": -2.5569999999999595,
         "lng": -44.32980999999995,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 3
     },
     {
@@ -1102,7 +1102,7 @@
         "nome": "João de Deus",
         "lat": -2.558029999999974,
         "lng": -44.232039999999984,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 2
     },
     {
@@ -1137,14 +1137,14 @@
         "nome": "Conjunto Alexandra Tavares",
         "lat": -2.5600582308442434,
         "lng": -44.24122750241861,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 2
     },
     {
         "nome": "Vila Alexandra Tavares",
         "lat": -2.5600582308442434,
         "lng": -44.24122750241861,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 2
     },
     {
@@ -1158,21 +1158,21 @@
         "nome": "Vila Isabel",
         "lat": -2.561129999999934,
         "lng": -44.317519999999945,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 2
     },
     {
         "nome": "Fumacê",
         "lat": -2.561279999999954,
         "lng": -44.33653999999996,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 3
     },
     {
         "nome": "Conjunto Dom Sebastião",
         "lat": -2.5621699999999805,
         "lng": -44.274279999999976,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 2
     },
     {
@@ -1214,7 +1214,7 @@
         "nome": "Cohapam",
         "lat": -2.5647599999999784,
         "lng": -44.22692999999998,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 2
     },
     {
@@ -1249,7 +1249,7 @@
         "nome": "Residencial Tiradentes",
         "lat": -2.566895938230364,
         "lng": -44.212895310811625,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 3
     },
     {
@@ -1263,7 +1263,7 @@
         "nome": "Piancó",
         "lat": -2.569152368695123,
         "lng": -44.30266021180636,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 3
     },
     {
@@ -1277,21 +1277,21 @@
         "nome": "Vila Sete de Setembro",
         "lat": -2.5709146469560737,
         "lng": -44.26120755695948,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 2
     },
     {
         "nome": "Vila Embratel",
         "lat": -2.571209999999951,
         "lng": -44.304629999999975,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 3
     },
     {
         "nome": "Jardim São Cristóvão I",
         "lat": -2.571459999999945,
         "lng": -44.22611999999998,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 2
     },
     {
@@ -1326,14 +1326,14 @@
         "nome": "Tirirical",
         "lat": -2.575869999999952,
         "lng": -44.23641999999995,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 2
     },
     {
         "nome": "Recanto dos Pássaros",
         "lat": -2.579309999999964,
         "lng": -44.19070999999997,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 2
     },
     {
@@ -1354,7 +1354,7 @@
         "nome": "Vila Sarney",
         "lat": -2.58821069612443,
         "lng": -44.193573283274894,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 3
     },
     {
@@ -1396,7 +1396,7 @@
         "nome": "Vila Itamar",
         "lat": -2.595659999999953,
         "lng": -44.24918999999994,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 3
     },
     {
@@ -1466,14 +1466,14 @@
         "nome": "Vila Ayrton Senna",
         "lat": -2.60358999999994,
         "lng": -44.23401999999993,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 2
     },
     {
         "nome": "Santa Bárbara",
         "lat": -2.60418999999996,
         "lng": -44.21040999999997,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 3
     },
     {
@@ -1508,7 +1508,7 @@
         "nome": "Residencial Ana Jansen",
         "lat": -2.6121549553294443,
         "lng": -44.26552992978391,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 2
     },
     {
@@ -1536,7 +1536,7 @@
         "nome": "Residencial Ivaldo Rodrigues",
         "lat": -2.6121549553294443,
         "lng": -44.26552992978391,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 2
     },
     {
@@ -1550,35 +1550,35 @@
         "nome": "Residencial Nestor",
         "lat": -2.6121549553294443,
         "lng": -44.26552992978391,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 2
     },
     {
         "nome": "Residencial Nova Vida",
         "lat": -2.6121549553294443,
         "lng": -44.26552992978391,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 2
     },
     {
         "nome": "Residencial Paraíso",
         "lat": -2.6121549553294443,
         "lng": -44.26552992978391,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 3
     },
     {
         "nome": "Residencial Resende",
         "lat": -2.6121549553294443,
         "lng": -44.26552992978391,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 2
     },
     {
         "nome": "Residencial Shalom",
         "lat": -2.6121549553294443,
         "lng": -44.26552992978391,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 3
     },
     {
@@ -1613,7 +1613,7 @@
         "nome": "Cajueiro",
         "lat": -2.617761710069108,
         "lng": -44.325461686660624,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 3
     },
     {
@@ -1634,14 +1634,14 @@
         "nome": "Ilha da Paz",
         "lat": -2.623945874002009,
         "lng": -44.31092483242141,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 2
     },
     {
         "nome": "Tajaçuaba",
         "lat": -2.630690113938753,
         "lng": -44.21519327690991,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 3
     },
     {
@@ -1683,7 +1683,7 @@
         "nome": "Quebra Pote",
         "lat": -2.683329999999956,
         "lng": -44.216669999999965,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 3
     },
     {
@@ -1718,14 +1718,14 @@
         "nome": "Vila Esperança",
         "lat": -2.732306344398099,
         "lng": -44.32833194782352,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 3
     },
     {
         "nome": "Coqueiro",
         "lat": -2.742226868095249,
         "lng": -44.346131856886906,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 3
     },
     {
@@ -1760,21 +1760,21 @@
         "nome": "Vila Industrial",
         "lat": -2.627462576367554,
         "lng": -44.26394595189514,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 3
     },
     {
         "nome": "Pão de Açúcar",
         "lat": -2.539213766113832,
         "lng": -44.24300965873193,
-        "atendido": false,
+        "atendido": true,
         "vulnerabilidade_territorial": 2
     },
     {
         "nome": "Pedrinhas",
         "lat": -2.6198763257801407,
         "lng": -44.31688550517403,
-        "atendido": true,
+        "atendido": false,
         "vulnerabilidade_territorial": 3
     }
 ]
