@@ -25,7 +25,7 @@ def merge_sort_familias(lista):
         return lista
     
     meio = len(lista) // 2
-    esquerda = merge_sort_familias(lista[:meio]) # Lembra do fatiamento?
+    esquerda = merge_sort_familias(lista[:meio]) 
     direita = merge_sort_familias(lista[meio:])
     
     return merge(esquerda, direita)
