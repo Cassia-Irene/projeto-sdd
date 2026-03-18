@@ -36,20 +36,32 @@ O sistema gera um painel estratégico em HTML que permite uma análise visual in
 ## 📂 Arquitetura do Sistema
 ```text
 /
-├── main.py            # Orquestração e execução do Dashboard
-├── dashboard_slz.html # Interface visual interativa gerada
-├── requirements.txt   # Dependências (Folium, *cpmpletar*, etc.)
-├── README.md          # Documentação técnica do ecossistema
-├── /src               # Camadas de processamento e lógica
-│   ├── logic.py       # Core: Regras de negócio e análise territorial
-│   ├── sorting.py     # Algoritmos de Ordenação (Merge Sort)
-│   ├── structures.py  # Camada de Acesso a Dados e Modelagem (I/O)
-│   └── visuals.py     # Motor de renderização gráfica e mapas
-└── /data              # Base de dados e scripts de suporte
-    ├── bairros_coords.json
-    ├── chuvas_slz.json
-    ├── familias_slz.json
-    └── (Scripts de processamento de dados sintéticos)
+├── /.vscode             # Configurações do ambiente de desenvolvimento
+│   └── settings.json
+├── /data                # Base de dados e scripts de ETL/Simulação
+│   ├── bairros_coords.json
+│   ├── chuvas_slz.json
+│   ├── classificar_bairros.py
+│   ├── entregas_sazonais.json
+│   ├── familias_slz.json
+│   ├── familias.py
+│   ├── gerar_clima.py
+│   ├── gerar_entregas.py
+│   └── processar_bairros.py
+├── /docs                # Documentação adicional e recursos visuais
+│   ├── /assets          # Imagens e prints de demonstração do Dashboard
+│   └── INFORME.md       # Relatório técnico e apresentação do projeto
+├── /src                 # Camadas de processamento e lógica
+│   ├── logic.py         # Core: Regras de negócio e análise territorial
+│   ├── main.py          # Script de execução dos módulos internos
+│   ├── sorting.py       # Algoritmos de Ordenação (Merge Sort)
+│   ├── structures.py    # Camada de Acesso a Dados e Modelagem (I/O)
+│   └── visuals.py       # Motor de integração com Folium e Chart.js
+├── .gitignore           # Arquivos ignorados pelo controle de versão
+├── dashboard_slz.html   # Interface visual interativa gerada (Mapas e Gráficos)
+├── main.py              # Orquestração e execução central do sistema
+├── README.md            # Documentação técnica do ecossistema
+└── requirements.txt     # Dependências (Folium, Faker, Pandas, Requests, etc.)
 ```
 
 ## 👩‍💻 Devs
