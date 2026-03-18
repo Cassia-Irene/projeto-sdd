@@ -18,7 +18,7 @@ O sistema gera um painel estratégico em HTML que permite uma análise visual in
 
 1.  **Mapa de Calor (Heatmap):** Visualização geoespacial das zonas de risco alimentar utilizando a biblioteca `Folium`.
 2.  **Monitoramento Sazonal:** Gráfico que correlaciona o índice de chuvas com alertas de estoque emergencial para famílias sem infraestrutura.
-3.  **Perfil de Vulnerabilidade:** Distribuição estatística dos níveis de insegurança (Leve, Moderada e Grave).
+3.  **Perfil de Vulnerabilidade:** Distribuição estatística dos níveis de insegurança (Seguro, Leve, Moderada e Grave).
 
 ## 🚀 Como Executar
 

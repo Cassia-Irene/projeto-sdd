@@ -635,7 +635,7 @@ def gerar_dashboard_html():
   <div class="section-label">03 — Mapa de Calor de Vulnerabilidade</div>
   <div class="card">
     <div class="card-title">Distribuição Espacial do Risco — São Luís/MA</div>
-    <div class="card-sub">azul → amarelo → vermelho = leve → moderado → grave</div>
+    <div class="card-sub">verde → azul → amarelo → vermelho = seguro → leve → moderado → grave</div>
     <div class="mapa-wrap">{mapa_html}</div>
   </div>
 
