@@ -1,0 +1,30 @@
+{
+  "80": {
+    "Bubble Sort": 0.2803,
+    "Selection Sort": 0.1768,
+    "Insertion Sort": 0.1531,
+    "Merge Sort": 0.1159,
+    "Quick Sort": 0.0581
+  },
+  "500": {
+    "Bubble Sort": 16.0105,
+    "Selection Sort": 9.104,
+    "Insertion Sort": 11.8541,
+    "Merge Sort": 1.8523,
+    "Quick Sort": 0.852
+  },
+  "2000": {
+    "Bubble Sort": 228.4038,
+    "Selection Sort": 175.4822,
+    "Insertion Sort": 153.5163,
+    "Merge Sort": 4.7451,
+    "Quick Sort": 3.1407
+  },
+  "5000": {
+    "Bubble Sort": 1514.4405,
+    "Selection Sort": 785.9633,
+    "Insertion Sort": 771.8632,
+    "Merge Sort": 14.5384,
+    "Quick Sort": 7.825
+  }
+}
